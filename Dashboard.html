@@ -14,12 +14,13 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1>Welcome to the PDF Library</h1>
+        <h1 class="fade-in">Welcome to the PDF Library</h1>
+        <p id="userGreeting"></p>
       </header>
+
       <main class="content">
-        <main>
-          <section class="category">
-            <h2>Select a Subject</h2>
+        <section class="category">
+          <h2 class="fade-in">Select a Subject</h2>
           <div class="subjects">
             <a href="maths.html" class="subject">MTS 102, MTS 104, STA 122</a>
             <a href="physics.html" class="subject">PHY 102</a>
@@ -27,26 +28,27 @@
             <a href="GNS6.html" class="subject">GNS 106</a>
           </div>
         </section>
+        <button id="logoutBtn">Logout</button>
       </main>
-    </main>
-    <footer>
+
       <footer class="footer">
         <p>&copy; 2025 PDF Library</p>
       </footer>
     </div>
-    </footer>
+
     <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
       import {
         getAuth,
         onAuthStateChanged,
+        signOut,
       } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-auth.js";
 
       const firebaseConfig = {
         apiKey: "AIzaSyC0mbnVK6Mn5saYMHRRqiCa1WcvVij-0lY",
         authDomain: "student-pdf-site.firebaseapp.com",
         projectId: "student-pdf-site",
-        storageBucket: "student-pdf-site.firebasestorage.app",
+        storageBucket: "student-pdf-site.appspot.com",
         messagingSenderId: "249230647591",
         appId: "1:249230647591:web:deb8694ce01fc927be8902",
         measurementId: "G-03D840GPD8",
@@ -55,15 +57,42 @@
       const app = initializeApp(firebaseConfig);
       const auth = getAuth(app);
 
-      // Protect the page
+      // Authentication check and dynamic greeting
       onAuthStateChanged(auth, (user) => {
         if (!user) {
-          // No user is signed in, redirect to login page
           window.location.href = "login.html";
         } else {
-          console.log("User is logged in:", user.email);
-          // You can also display the user's info on the page here
+          const greetingElement = document.getElementById("userGreeting");
+          const hours = new Date().getHours();
+          let timeOfDay = "Hello";
+
+          if (hours < 12) {
+            timeOfDay = "Good morning";
+          } else if (hours < 18) {
+            timeOfDay = "Good afternoon";
+          } else {
+            timeOfDay = "Good evening";
+          }
+
+          const name =
+            user.displayName ||
+            (user.email ? user.email.split("@")[0] : "Student");
+
+          greetingElement.textContent = `${timeOfDay}, ${name}!`;
         }
+      });
+
+      // Logout function
+      const logoutBtn = document.getElementById("logoutBtn");
+      logoutBtn.addEventListener("click", () => {
+        signOut(auth)
+          .then(() => {
+            alert("Logged out successfully.");
+            window.location.href = "login.html";
+          })
+          .catch((error) => {
+            console.error("Logout error:", error);
+          });
       });
     </script>
   </body>
