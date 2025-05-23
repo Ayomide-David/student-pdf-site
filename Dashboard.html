@@ -60,7 +60,7 @@
       // Authentication check and dynamic greeting
       onAuthStateChanged(auth, (user) => {
         if (!user) {
-          window.location.href = "login.html";
+          window.location.href = "index.html";
         } else {
           const greetingElement = document.getElementById("userGreeting");
           const hours = new Date().getHours();
@@ -88,7 +88,7 @@
         signOut(auth)
           .then(() => {
             alert("Logged out successfully.");
-            window.location.href = "login.html";
+            window.location.href = "index.html";
           })
           .catch((error) => {
             console.error("Logout error:", error);
