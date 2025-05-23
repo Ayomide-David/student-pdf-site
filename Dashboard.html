@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="CSS/dashboard.css" />
+    <link rel="stylesheet" href="CSS/normalize.css" />
+    <title>Student PDF Dashboard</title>
+    <script
+      src="https://kit.fontawesome.com/f8d29d0b22.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Welcome to the PDF Library</h1>
+      </header>
+      <main class="content">
+        <main>
+          <section class="category">
+            <h2>Select a Subject</h2>
+          <div class="subjects">
+            <a href="maths.html" class="subject">MTS 102, MTS 104, STA 122</a>
+            <a href="physics.html" class="subject">PHY 102</a>
+            <a href="GNS2.html" class="subject">GNS 102</a>
+            <a href="GNS6.html" class="subject">GNS 106</a>
+          </div>
+        </section>
+      </main>
+    </main>
+    <footer>
+      <footer class="footer">
+        <p>&copy; 2025 PDF Library</p>
+      </footer>
+    </div>
+    </footer>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
+      import {
+        getAuth,
+        onAuthStateChanged,
+      } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-auth.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyC0mbnVK6Mn5saYMHRRqiCa1WcvVij-0lY",
+        authDomain: "student-pdf-site.firebaseapp.com",
+        projectId: "student-pdf-site",
+        storageBucket: "student-pdf-site.firebasestorage.app",
+        messagingSenderId: "249230647591",
+        appId: "1:249230647591:web:deb8694ce01fc927be8902",
+        measurementId: "G-03D840GPD8",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+
+      // Protect the page
+      onAuthStateChanged(auth, (user) => {
+        if (!user) {
+          // No user is signed in, redirect to login page
+          window.location.href = "login.html";
+        } else {
+          console.log("User is logged in:", user.email);
+          // You can also display the user's info on the page here
+        }
+      });
+    </script>
+  </body>
+</html>

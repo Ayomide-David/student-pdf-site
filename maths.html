@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="CSS/maths.css" />
+    <link rel="stylesheet" href="CSS/normalize.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>PDF Preview and Download</title>
+        <link rel="stylesheet" href="style.css" />
+      </head>
+      <body>
+        <!-- Search Bar -->
+        <div class="search-container">
+          <input type="text" id="searchBar" placeholder="Search by topic..." />
+        </div>
+
+        <!-- PDF List -->
+        <div class="pdf-item" data-category="functions real-variable">
+          <p>Functions of Real Variables</p>
+          <button
+            onclick="previewPDF('/PDFs/MTS 102 Function of real variables-Copy.pdf')"
+          >
+            Preview
+          </button>
+          <a href="/PDFs/MTS 102 Function of real variables-Copy.pdf" download>
+            <button>Download</button>
+          </a>
+        </div>
+
+        <div class="pdf-item" data-category="limits continuity">
+          <p>Limits and Continuity</p>
+          <button
+            onclick="previewPDF('/PDFs/MTS 102 Limit and Continuity Copy.pdf')"
+          >
+            Preview
+          </button>
+          <a href="/PDFs/MTS 102 Limit and Continuity Copy.pdf" download>
+            <button>Download</button>
+          </a>
+        </div>
+
+        <div class="pdf-item" data-category="integration application">
+          <p>Applications of Integration</p>
+          <button
+            onclick="previewPDF('/PDFs/MTS 102 Application of Integration-Copy.pdf')"
+          >
+            Preview
+          </button>
+          <a href="/PDFs/MTS 102 Application of Integration-Copy.pdf" download>
+            <button>Download</button>
+          </a>
+        </div>
+
+        <div class="pdf-item" data-category="differentiation">
+          <p>Differentiation</p>
+          <button
+            onclick="previewPDF('/PDFs/MTS 102 - Differentiation Exercise-Copy.pdf')"
+          >
+            Preview
+          </button>
+          <a href="/PDFs/MTS 102 - Differentiation Exercise-Copy.pdf" download>
+            <button>Download</button>
+          </a>
+        </div>
+
+        <div class="pdf-item" data-category="MTS manual calculus">
+          <p>Basic Calculus</p>
+          <button
+            onclick="previewPDF('/PDFs/MTS 102 BasicCalculus (1)-Copy.pdf')"
+          >
+            Preview
+          </button>
+          <a href="/PDFs/MTS 102 BasicCalculus (1)-Copy.pdf" download>
+            <button>Download</button>
+          </a>
+        </div>
+
+        <div class="pdf-item" data-category="geometry circle">
+          <p>Circles</p>
+          <button onclick="previewPDF('/PDFs/MTS 104 Circle-Copy.pdf')">
+            Preview
+          </button>
+          <a href="/PDFs/MTS 104 Circle-Copy.pdf" download>
+            <button>Download</button>
+          </a>
+        </div>
+
+        <div class="pdf-item" data-category="geometry circle">
+          <p>Geometry Notes</p>
+          <button
+            onclick="previewPDF('/PDFs/MTS 104 geometry_Note-Copy 2.pdf')"
+          >
+            Preview
+          </button>
+          <a href="/PDFs/MTS 104 geometry_Note-Copy 2.pdf" download>
+            <button>Download</button>
+          </a>
+        </div>
+
+        <div class="pdf-item" data-category="conic section">
+          <p>Conic-Section Formulas</p>
+          <button
+            onclick="previewPDF('/PDFs/MTS 104 conic-sections-formulas-Copy.pdf')"
+          >
+            Preview
+          </button>
+          <a href="/PDFs/MTS 104 conic-sections-formulas-Copy.pdf" download>
+            <button>Download</button>
+          </a>
+        </div>
+
+        <div class="pdf-item" data-category="conic section">
+          <p>Conic-Section</p>
+          <button
+            onclick="previewPDF('/PDFs/CONIC SECTIONS (MTS 104 tutorial)_1-Copy.pdf')"
+          >
+            Preview
+          </button>
+          <a href="/PDFs/CONIC SECTIONS (MTS 104 tutorial)_1-Copy.pdf" download>
+            <button>Download</button>
+          </a>
+        </div>
+
+        <div class="pdf-item" data-category="sta STA">
+          <p>STA122 Notes</p>
+          <button onclick="previewPDF('/PDFs/STA 122 Copy.pdf')">
+            Preview
+          </button>
+          <a href="/PDFs/STA 122 Copy.pdf" download>
+            <button>Download</button>
+          </a>
+        </div>
+
+        <div class="pdf-item" data-category="sta STA past questions">
+          <p>STA122 Past questions</p>
+          <button onclick="previewPDF('/PDFs/STA 122---CBE 2016__2017 .pdf')">
+            Preview
+          </button>
+          <a href="/PDFs/STA 122---CBE 2016__2017 .pdf" download>
+            <button>Download</button>
+          </a>
+        </div>
+
+        <!-- Preview Section -->
+        <div id="pdfPreviewContainer">
+          <h3>PDF Preview</h3>
+          <iframe id="pdfViewer"></iframe>
+          <button onclick="closePreview()">Close Preview</button>
+        </div>
+
+        <script src="script.js"></script>
+      </body>
+    </html>
+  </body>
+</html>
