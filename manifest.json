@@ -1,0 +1,34 @@
+ {
+  "name": "Student PDF Hub",
+  "short_name": "PDF Hub",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#4CAF50",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/images/screenshot-wide.PNG",
+      "sizes": "1366x728",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+     {
+      "src": "/images/screenshot-portrait.png",
+      "type": "image/png",
+      "sizes": "720x1612"
+    }
+  ]
+}

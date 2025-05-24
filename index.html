@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
     <link rel="stylesheet" href="CSS/styles.css" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#4CAF50" />
   </head>
   <body class="user">
     <div class="form-container">
@@ -55,6 +57,14 @@
             alert(error.message);
           });
       });
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("service-worker.js")
+            .then((reg) => console.log("Service Worker registered:", reg))
+            .catch((err) => console.error("Service Worker error:", err));
+        });
+      }
     </script>
   </body>
 </html>
